@@ -6,33 +6,40 @@
 //   reverse('hello') === 'olleh'
 //   reverse('Greetings!') === '!sgniteerG'
 
-// function reverse(str) {
-//   // takes all the elements of the array and boils them down to one value.
-//   return str.split('').reduce((reverse, character) => character + reverse, ''); // reduce takes 2 values, the function.. and the initial value.
-//   // every time it runs it takes the first value and places it inside the function.
-// }
+// =========================================================
+// Best way to solve
+// =========================================================
+function reverse(str) {
+  // takes all the elements of the array and boils them down to one value.
+  // return str.split('').reduce((reverse, character) => {
+  //   return character + reverse;
+  // }, ''); // reduce takes 2 values, the function.. and the initial value.
+  // refactored version
+  return str.split('').reduce((rev, char) => char + rev, '');
+}
 
-// reverse('asdf');
-
+// =========================================================
+// Better way to solve
+// =========================================================
 //This wont allow you to iterate over every so elements, you need to use a reg for or while loop
 // function reverse(str) {
-//   // Create an empty string called 'reversed'.
 //   let reversed = '';
 
-//   for(let item of str) {
+//   for (let item of str) {
 //     reversed = item + reversed;
 //   }
 
 //   return reversed;
 // }
 
-// reverse('Hello');
+reverse('Hello');
 
+
+// =========================================================
+// Most simple
+// =========================================================
 // function reverse(str) {
-//   newStr = str
-//     .split('')
-//     .reverse('')
-//     .join('');
+//   let newStr = str.split('').reverse().join('');
 
 //   return newStr;
 // }

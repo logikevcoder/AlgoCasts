@@ -7,6 +7,9 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
+// =========================================================
+// Also a good but standard way to solve
+// =========================================================
 // function palindrome(str) {
 //   let re = /[^A-Za-z0-9]/g;
 
@@ -21,28 +24,32 @@
 // }
 // palindrome('a toyotas a toyota');
 
+// =========================================================
+// Good way to do it, but does double the work to solve
+// =========================================================
+// not an ideal solution because it checks up to center and then past the center to the previous array items.
+// This is good to explain to the interviewer why this is not an ideal solution
 // function palindrome(str) {
 
 //   let re = /[\W_]/g;
-
 //   let lowRegString = str.toLowerCase().replace(re, '');
-//   return lowRegString.split('').every((char, i) => {
-//     return char === lowRegString[str.length - i -1];
+
+//   // every checks for every item in the array in this instance 'character'
+//   return lowRegString.split('').every((character, i) => {
+//     return character === lowRegString[str.length - i - 1]; // 1st - 1 = last , 2nd = 2 - 1 = 2nd to last
 //   });
 // }
-// palindrome('racecar');
 
-
+// =========================================================
+// Most simple solution
+// =========================================================
 // function palindrome(str) {
 //   let re = /[^A-Za-z0-9_]/g;
-//   const newStr = str.toLowerCase().replace(re, '');
-//     .split('')
-//     .reverse()
-//     .join('');
+//   const reversedStr = str.split('').reverse().join('');
 
-//   return str === newStr;
-
-//   palindrome('mom');
+//   return reversedStr === str;
 // }
+
+palindrome('racecar');
 
 module.exports = palindrome;
